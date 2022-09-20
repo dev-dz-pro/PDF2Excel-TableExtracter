@@ -1,0 +1,12 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!Data/
+!MainAppUI.py
+!Pdf2Excel.py
+!requirement.txt
+
+
+
