@@ -4,6 +4,10 @@
 # But not these files...
 !.gitignore
 !Data/
+!Data/Icones/
+!Data/Icones/*
+!Data/front.kv
+!Data/tamplets.kv
 !MainAppUI.py
 !Pdf2Excel.py
 !requirement.txt

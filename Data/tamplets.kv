@@ -1,0 +1,74 @@
+<SpinnerWidget>:
+    text_size: self.width - 20, None
+    color: (.8, .8, .9, 1) if self.is_open else (0,0,0,1)
+    background_color: 0,0,0,0
+    canvas.before:
+        Color:
+            rgba: .95,.94,.93,1
+        RoundedRectangle:
+            pos: self.pos[0] + 2, self.pos[1] + 2
+            size: self.size[0] - 4, self.size[1] - 4
+            radius: [8,]
+        Color:
+            rgba: .7, .7, .7, 1
+        Line:
+            width: 1
+            rounded_rectangle: self.x + 2, self.y + 2, self.width - 4, self.height - 4, 8, 8, 8, 8
+    canvas.after:
+        Color:
+            rgba: .7,.7,.7,1
+        Rectangle:
+            pos: self.pos[0] + self.width - 35, self.pos[1] + self.height - 32
+            size: 25, 25
+            source: 'Data/Icones/up.png' if self.is_open else 'Data/Icones/down.png'
+
+<SpinnerOptions>:
+    color: [0, 0, 0, 1]
+    background_color: 0,0,0,0
+    text_size: self.width - 20, None
+    canvas.before:
+        Color:
+            rgba: (.8, .8, .9, 1)
+        RoundedRectangle:
+            pos: self.pos[0] + 2, self.pos[1] + 2
+            size: self.size[0] - 4, self.size[1] - 4
+            radius: [8,]
+        Color:
+            rgba: .7, .7, .7, 1
+        Line:
+            width: 1
+            rounded_rectangle: self.x + 2, self.y + 2, self.width - 4, self.height - 4, 8, 8, 8, 8
+
+<RoundedBox@BoxLayout>:
+    clr: 1,1,1,1
+    padding: 10
+    line: True
+    canvas.before:
+        Color:
+            rgba: root.clr
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [6,]
+        Color:
+            rgba: (.7, .7 , .7, 1) if root.line else root.clr
+        Line:
+            width: 0.6
+            rounded_rectangle: self.x, self.y, self.width, self.height, 6,6,6,6
+
+
+<CustomButton@Button>:
+    background_color: 0,0,0,0
+    clr: (1, 1, 1, 1)
+    canvas.before:
+        Color:
+            rgba: root.clr if self.state == 'normal' else (.7, .9, .7, 1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [5,]
+        Color:
+            rgba: .7, .7, .7, 1
+        Line:
+            width: 1
+            rounded_rectangle: self.x, self.y, self.width, self.height, 5,5,5,5

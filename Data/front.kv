@@ -1,0 +1,66 @@
+#:include Data/tamplets.kv
+
+<MainUI>:
+    canvas.before:
+        Color:
+            rgba: 1,1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        padding: 20
+        spacing: 10
+        orientation: 'vertical'
+        RoundedBox:
+            orientation: 'vertical'
+            size_hint_y: .8
+            padding: 10
+            spacing: 10
+            canvas.before:
+                Color:
+                    rgba: .91,.91,.92,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            BoxLayout:
+                Label:
+                    text: 'Company Name :'
+                    text_size: self.width - 20, None
+                    color: 0,0,0,1
+                    size_hint: None, None
+                    size: 135, 40
+                SpinnerWidget:
+                    id: id_company
+                    text: 'Choose company ...'
+                    values: ['ARYSE','VERTALOC', 'USD_INVOICE']
+                    size_hint_y: None
+                    height: 40
+            BoxLayout:
+                Label:
+                    text: 'Upload Files :'
+                    text_size: self.width - 20, None
+                    color: 0,0,0,1
+                    size_hint: None, None
+                    size: 135, 40
+                CustomButton:
+                    text: 'Upload'
+                    color: 0,0,0,1
+                    size_hint_y: None
+                    height: 40
+                    on_release: root.upload_file()
+            
+        CustomButton:
+            text: 'submit'
+            on_release: root.ids.my_progressbar.value += 100
+            color: 0,0,0,1
+            size_hint_y: None
+            height: 40
+            on_release: root.precess()
+        ProgressBar:
+            id: my_progressbar
+            max: 1000
+            value: 0
+            size_hint_y: None
+            height: 5
+
+    
